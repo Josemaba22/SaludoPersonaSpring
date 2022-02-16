@@ -5,8 +5,6 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neoris.saludo.entity.Saludo;
-import com.neoris.saludo.exception.ErrorDetails;
-import com.neoris.saludo.exception.TypeAlredyExistException;
 import com.neoris.saludo.request.CreateSaludoRequest;
 import com.neoris.saludo.response.SaludoResponse;
 import com.neoris.saludo.service.SaludoService;
@@ -45,6 +41,7 @@ public class SaludoController {
 		return saludoResponseList;
 	}
 	
+	/*
 	@PostMapping("create")
 	public ResponseEntity<Object> createSaludo(@Validated  @RequestBody CreateSaludoRequest createSaludoRequest) {
 		
@@ -57,16 +54,16 @@ public class SaludoController {
 			return new ResponseEntity<Object>(errorDetails,HttpStatus.CONFLICT);
 		}
 		
-	}
+	}*/
 
 	
-	/*
+	
 	@PostMapping("create")
 	public SaludoResponse createSaludo(@Validated  @RequestBody CreateSaludoRequest createSaludoRequest) {
 		Saludo saludo = saludoService.guardarSaludo(createSaludoRequest);
 		return new SaludoResponse(saludo);
 	}
-	*/
+	
 	
 
 	
