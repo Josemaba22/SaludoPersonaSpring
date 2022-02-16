@@ -33,6 +33,22 @@ public class GlobalExceptionHandler {
 		webRequest.getDescription(false);
 		return new ResponseEntity<ErrorDetails>(errorDetails,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	@ExceptionHandler(NoHayPersonasException.class)
+	public ResponseEntity<ErrorDetails> handleTypeAlredyExistException
+	(NoHayPersonasException ex, WebRequest webRequest){
+		ErrorDetails errorDetails = new ErrorDetails("1500", "No hay personas en la base de datos");
+		webRequest.getDescription(false);
+		return new ResponseEntity<ErrorDetails>(errorDetails,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@ExceptionHandler(PersonaNoExisteException.class)
+	public ResponseEntity<ErrorDetails> handleTypeAlredyExistException
+	(PersonaNoExisteException ex, WebRequest webRequest){
+		ErrorDetails errorDetails = new ErrorDetails("1000", "Persona desconocida");
+		webRequest.getDescription(false);
+		return new ResponseEntity<ErrorDetails>(errorDetails,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
 
 }

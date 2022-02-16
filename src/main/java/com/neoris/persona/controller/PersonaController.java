@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.neoris.persona.entity.Persona;
 import com.neoris.persona.request.CreatePersonaRequest;
 import com.neoris.persona.response.PersonaResponse;
+import com.neoris.persona.response.PersonaSaludoResponse;
 import com.neoris.persona.service.PersonaService;
 
 @RestController
@@ -43,8 +45,13 @@ public class PersonaController {
 	}
 	
 	@PostMapping("create")
-	public PersonaResponse createPersona(@Valid @RequestBody CreatePersonaRequest request) {
-		Persona persona = personaService.guardar(request);
-		return new PersonaResponse(persona);
+	public PersonaSaludoResponse createPersona(@Valid @RequestBody CreatePersonaRequest request) {
+		PersonaSaludoResponse persona = personaService.guardar(request);
+		return persona;
+	}
+	
+	@GetMapping("getByNombre/{nombre}")
+	public PersonaResponse getByNombre(@PathVariable String nombre) {
+		return new PersonaResponse(personaService.getByNombre(nombre));
 	}
 }
