@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "7608ee82-286e-48fb-8662-14ff1b6bda24",
+		"name": "Saludo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/saludo/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/saludo/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"saludo",
+						"getAll"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Obtiene todos los registros de la tabla saludo de la bd saludar"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/persona/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombrePersona\" : \"Dennis\",\r\n    \"edad\" : 35,\r\n    \"direccionPersona\": \"Culiacan\",\r\n    \"nombreEmpresa\" : \"Neoris\",\r\n    \"direccionEmpresa\" : \"Monterrey\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/persona/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persona",
+						"create"
+					]
+				},
+				"description": "Agrega unJSON de persona "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/saludo/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipo\" : \"Sas\",\r\n    \"mensaje\" : \"Es sas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/saludo/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"saludo",
+						"create"
+					]
+				},
+				"description": "Crea nuevo saludo"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/saludo/get/Mañana",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/saludo/get/Mañana",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"saludo",
+						"get",
+						"Mañana"
+					]
+				},
+				"description": "Get por tipo de saludo"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/persona/getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/persona/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persona",
+						"getAll"
+					]
+				},
+				"description": "Get todos los registro de persona"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/persona/getByNombre/jose",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/persona/getByNombre/jose",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persona",
+						"getByNombre",
+						"jose"
+					]
+				},
+				"description": "get por el nombre de la persona"
+			},
+			"response": []
+		}
+	]
+}

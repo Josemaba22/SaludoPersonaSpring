@@ -1,0 +1,30 @@
+========================================================
+Manual de intalaccion 
+Repositorio Github
+Proyecto SaludoPersonaSpring
+https://github.com/Josemaba22/SaludoPersonaSpring.git
+========================================================
+
+Requisitos:
+-Git instalado
+
+1.- Nos posicionamos en el directorio o carpeta donde clonaremos
+el repositorio
+
+2.- Clic derecho en la carpeta> Clic izquierdo Git Bash Here 
+
+3.- Ingresamos el siguiente comando git clone con la url del repositorio:
+	git clone https://github.com/Josemaba22/SaludoPersonaSpring.git
+
+4.- Cierra la ventana Git Bash
+
+5.- Se nos creara otra carpeta en el directorio actual y ingresamos a git bash:
+    Clic derecho en la nueva carpeta(SaludoPersonaSpring)> Clic izquierdo Git Bash Here
+
+6.- tecleamos los siguientes comandos:
+	git fetch (enter) > git pull (enter)
+
+7.- El contenido esta en la branch master, nos posicionamos en en ella con:
+	git checkout master (enter) > git pull (enter)
+
+8.- Abre el proyecto en tu IDE de preferencia
