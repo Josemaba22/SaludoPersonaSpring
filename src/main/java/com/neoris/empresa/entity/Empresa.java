@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.neoris.persona.entity.Persona;
-import com.neoris.persona.request.CreatePersonaRequest;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,10 +38,5 @@ public class Empresa {
 	@OneToMany(mappedBy = "empresa")
 	private List<Persona> personal;
 	
-	public Empresa(CreatePersonaRequest request) {
-		this.nombreEmpresa = request.getNombreEmpresa();
-		this.direccionEmpresa = request.getDireccionEmpresa();
-		
-	}
 	
 }

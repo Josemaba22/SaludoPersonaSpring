@@ -9,10 +9,11 @@ import org.springframework.web.client.RestTemplate;
 
 import com.neoris.empresa.entity.Empresa;
 import com.neoris.empresa.repository.EmpresaRepository;
+import com.neoris.empresa.request.EmpresaRequest;
+import com.neoris.empresa.service.EmpresaService;
 import com.neoris.persona.entity.Persona;
 import com.neoris.persona.repository.PersonaRepository;
 import com.neoris.persona.request.CreatePersonaRequest;
-import com.neoris.persona.response.PersonaResponse;
 import com.neoris.persona.response.PersonaSaludoResponse;
 import com.neoris.saludo.exception.NameAlredyExistException;
 import com.neoris.saludo.exception.NoHayPersonasException;
@@ -27,6 +28,9 @@ public class PersonaService {
 	
 	@Autowired
 	private EmpresaRepository empresaRepository;
+	
+	@Autowired
+	private EmpresaService empresaService;
 	
 	public List<Persona> getAll(){
 		if(personaRepository.findAll().isEmpty()) {
@@ -59,21 +63,26 @@ public class PersonaService {
 	}
 	
 	public PersonaSaludoResponse guardar(CreatePersonaRequest request) {
-		Persona persona = new Persona(request);
-		Empresa empresa = new Empresa();
-		empresa.setNombreEmpresa(request.getNombreEmpresa());
-		empresa.setDireccionEmpresa(request.getDireccionEmpresa());
+		Persona persona = new Persona();
+		persona.setNombre(request.getNombrePersona());
+		persona.setDireccionPersona(request.getDireccionPersona());
+		persona.setEdad(request.getEdad());
+		EmpresaRequest empresaRequest = new EmpresaRequest();
+		empresaRequest.setDireccion(request.getDireccionEmpresa());
+		empresaRequest.setNombre(request.getNombreEmpresa());
 		
 		if(personaRepository.findByNombre(persona.getNombre()) != null) {
 			throw new NameAlredyExistException();
 		}
 		
-		if(empresaRepository.findByNombreEmpresa(empresa.getDireccionEmpresa()) == null) {
-			empresaRepository.save(empresa);
-		} else {
-			empresa = empresaRepository.findByNombreEmpresa(empresa.getNombreEmpresa());
+		Empresa empresa = empresaRepository.findByNombreEmpresa(empresaRequest.getNombre());
+		
+		if(empresa == null) {
+			empresa = empresaService.guardarEmpresa(empresaRequest);
 		}
+		
 		persona.setEmpresa(empresa);
+		personaRepository.save(persona);
 		
 		return new PersonaSaludoResponse(personaRepository.save(persona), getSaludo()) ;
 		

@@ -16,10 +16,10 @@ public class PersonaSaludoResponse {
 	private String direccionPersona;
 	private String nombreEmpresa;
 	private String direccionEmpresa;
-	private SaludoResponse saludo;
+	private String saludo;
 	
-	public PersonaSaludoResponse(Persona persona, SaludoResponse saludosPrro) {
-		this.saludo = saludosPrro;
+	public PersonaSaludoResponse(Persona persona, SaludoResponse saludosPro) {
+		this.saludo = saludosPro.getMensaje();
 		this.id = persona.getId();
 		this.nombrePersona = persona.getNombre();
 		this.edad = persona.getEdad();

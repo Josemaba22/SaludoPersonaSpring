@@ -11,7 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 	"com.neoris.saludo.service",
 	"com.neoris.saludo.exception",
 	"com.neoris.persona.controller",
-	"com.neoris.persona.service"})
+	"com.neoris.persona.service",
+	"com.neoris.empresa,service"})
 @EntityScan({"com.neoris.saludo.entity",
 	"com.neoris.persona.entity",
 	"com.neoris.empresa.entity"})
